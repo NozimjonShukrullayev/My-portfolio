@@ -1,0 +1,98 @@
+#default {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #0264be, #047d8d, #05a791);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    perspective: 600px;
+
+}
+
+.container .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    transition: 1s;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+}
+
+.container .front img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.container .back {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateX(180deg);
+}
+
+.container .back h1 {
+    padding: 30px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.container .back p {
+    font-size: 22px;
+    padding: 30px;
+    text-transform: uppercase;
+}
+
+.container .back ul li {
+    display: inline;
+}
+
+.container .back ul li a i {
+    padding: 40px 25px;
+    font-size: 50px;
+    display: inline-block;
+    color: #fff;
+}
+
+
+.container .back::before {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    /* background: #111; */
+    background: linear-gradient(0deg, #333, #ff9100, rgb(43, 250, 205), transparent);
+    opacity: 0.55;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.container:hover .front {
+    transform: rotateX(-180deg);
+}
+
+.container:hover .back {
+    transform: rotateX(0deg);
+}
